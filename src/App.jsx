@@ -10,7 +10,7 @@ function Layout({ children }) {
           <div className="tag">知恵をつなぎ、課題をほどく。</div>
         </div>
 
-        <nav className="nav">
+        <nav className=   "nav">
           <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
             Top
           </NavLink>
@@ -142,63 +142,152 @@ function About() {
 }
 
 function Company() {
+  const definitions = [
+    { term: "使命（Why we exist）", desc: "存在意義。私たちが社会に対して果たす役割。" },
+    { term: "理念（What we believe in）", desc: "判断基準。大切にする価値観と姿勢。" },
+    { term: "ビジョン（What we want to be）", desc: "ありたい姿。目指す未来の状態。" },
+    { term: "基本方針", desc: "迷った時に戻る指針。仕事の進め方の軸。" },
+    { term: "行動指針", desc: "日々の行動の約束。具体的に何をするか。" },
+  ];
+
+  const principles = [
+    "難しい言葉より、わかる言葉で伝える",
+    "作って終わりにしない（運用・改善まで）",
+    "小さく始めて、現場で育てる",
+  ];
+
+  const profile = {
+    title: "代表取締役",
+    name: "（あなたの名前）",
+    bio: [
+      "（例）業務システム/インフラ/運用改善の支援を中心に、現場課題の整理と実装を得意としています。",
+      "（例）要件定義〜設計〜実装〜運用まで一気通貫で対応し、継続的に改善します。",
+    ],
+  };
+
+  const overview = [
+    ["会社名", "株式会社chienowa"],
+    ["設立", "（YYYY年MM月）"],
+    ["代表", "（あなたの名前）"],
+    ["所在地", "（都道府県・市区町村まで）"],
+    ["事業内容", "システム開発 / IT支援・技術顧問 / 業務改善"],
+    ["連絡先", "info@chienowa.example"],
+  ];
+
   return (
     <Layout>
-      <h1 className="pageTitle">会社概要</h1>
+      <section className="companyHero">
+        <p className="eyebrow">ABOUT</p>
+        <h1 className="companyTitle">会社情報</h1>
+        <p className="companyLead">知恵をつなぎ、課題をほどく。現場の「困った」を一緒に解決します。</p>
+      </section>
 
-      <table className="table">
-        <tbody>
-          <tr>
-            <th>会社名</th>
-            <td>株式会社chienowa</td>
-          </tr>
-          <tr>
-            <th>代表者</th>
-            <td>（氏名）</td>
-          </tr>
-          <tr>
-            <th>所在地</th>
-            <td>（都道府県・市区町村まで）</td>
-          </tr>
-          <tr>
-            <th>設立</th>
-            <td>（YYYY年MM月）</td>
-          </tr>
-          <tr>
-            <th>事業内容</th>
-            <td>システム開発 / IT支援・技術顧問 / 業務改善</td>
-          </tr>
-          <tr>
-            <th>連絡先</th>
-            <td>（メールアドレス）</td>
-          </tr>
-        </tbody>
-      </table>
+      <section className="section">
+        <h2 className="sectionTitle">定義</h2>
+        <div className="definitionGrid">
+          {definitions.map((d) => (
+            <div key={d.term} className="defItem">
+              <div className="defTerm">{d.term}</div>
+              <div className="defDesc">{d.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="note">
-        ※ 法的・信用的に必要な情報（住所の粒度、電話番号の有無など）は運用に合わせて調整しよう。
-      </div>
+      <section className="section">
+        <h2 className="sectionTitle">使命（Why we exist）</h2>
+        <div className="panel">
+          <p className="text">
+            （例）現場の知恵と技術をつなぎ、仕事が続く仕組みをつくる。
+          </p>
+        </div>
+
+        <h2 className="sectionTitle">理念（What we believe in）</h2>
+        <div className="panel">
+          <ul className="bullets">
+            {principles.map((x) => <li key={x}>{x}</li>)}
+          </ul>
+        </div>
+
+        <h2 className="sectionTitle">ビジョン（What we want to be）</h2>
+        <div className="panel">
+          <p className="text">
+            （例）ITが苦手な人でも安心して相談できる、やさしい技術パートナーになる。
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="sectionTitle">代表紹介</h2>
+        <div className="profileCard">
+          <div className="avatar" aria-hidden="true">C</div>
+          <div>
+            <div className="profileMeta">{profile.title}</div>
+            <div className="profileName">{profile.name}</div>
+            <div className="profileBio">
+              {profile.bio.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="sectionTitle">会社概要</h2>
+        <div className="overview">
+          {overview.map(([k, v]) => (
+            <div key={k} className="overviewRow">
+              <div className="overviewKey">{k}</div>
+              <div className="overviewVal">{v}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <h2 className="sectionTitle">アクセス</h2>
+        <div className="panel">
+          <p className="text">（住所）</p>
+          <p className="text">
+            <a className="link" href="https://maps.google.com/?q=Tokyo" target="_blank" rel="noreferrer">
+              Googleマップで開く
+            </a>
+          </p>
+        </div>
+      </section>
     </Layout>
   );
 }
 
+
 function Contact() {
+  const formEmbedUrl = "https://forms.gle/SEAeNm6PrMCymhTF8";
+  const formOpenUrl = formEmbedUrl.replace("?embedded=true", "");
+
   return (
     <Layout>
       <h1 className="pageTitle">お問い合わせ</h1>
 
       <div className="card">
-        <p>まずは相談だけでも大丈夫です。内容が固まっていなくてもOK。</p>
-        <p>
-          メール： <a href="mailto:info@chienowa.example">info@chienowa.example</a>
-        </p>
-        <p className="muted">
-          フォームを使うなら Googleフォーム / Formspree / Netlify Forms に差し替えできます。
+        <p>以下のフォームからお問い合わせください。</p>
+
+        <div className="formEmbed">
+          <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScpbTjJDvHhctjs4wnSg_AcIIrA3CDLEy7dm5KD30ZpYdc23w/viewform?embedded=true" width="900" height="959" frameborder="0" marginheight="0" marginwidth="1100"
+          ></iframe>
+        </div>
+
+        <p className="muted" style={{ marginTop: 12 }}>
+          うまく表示されない場合は{""}
+          <a className="link" href={formOpenUrl} target="_blank" rel="noreferrer">
+            こちら（Googleフォームを開く）
+          </a>
+          から送信してください。
         </p>
       </div>
     </Layout>
   );
 }
+
 
 export default function App() {
   return (
