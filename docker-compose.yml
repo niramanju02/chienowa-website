@@ -1,0 +1,27 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: chienowa_dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: npm run dev -- --host 0.0.0.0 --port 5173
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: chienowa_web
+    ports:
+      - "8080:80"
+    profiles: ["prod"]
+
+volumes:
+  node_modules:
