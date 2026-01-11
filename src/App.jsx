@@ -17,9 +17,9 @@ function Layout({ children }) {
           <NavLink to="/service" className={({ isActive }) => (isActive ? "active" : "")}>
             Service
           </NavLink>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
+          {/* <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
             About
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/company" className={({ isActive }) => (isActive ? "active" : "")}>
             Company
           </NavLink>
@@ -44,36 +44,26 @@ function Home() {
       <section className="hero">
         <h1>知恵をつなぎ、課題をほどく。</h1>
         <p>
-          株式会社chienowaは、現場の「困った」を一緒に整理し、わかる形にして、ちゃんと動く仕組みにします。
+          株式会社chienowaは、現場の「困った」を整理し、課題を解決する。
         </p>
         <div className="heroActions">
-          <a className="btn" href="/contact">相談してみる</a>
-          <a className="btn ghost" href="/service">できることを見る</a>
+          <a className="btn" href="/contact">お問い合わせ</a>
+          {/* <a className="btn ghost" href="/service">About</a> */}
         </div>
       </section>
 
       <section className="grid">
         <div className="card">
-          <h2>システム開発</h2>
-          <p>Web/API、業務システム、運用まで。小さく始めて育てられます。</p>
+          <h2>開発請負</h2>
+          <p>Web/API、業務システム、開発。</p>
         </div>
         <div className="card">
-          <h2>IT支援・技術顧問</h2>
-          <p>設計レビュー、相談窓口、運用改善。社内の“頼れる人”になります。</p>
-        </div>
-        <div className="card">
-          <h2>業務改善</h2>
-          <p>現状整理から。ムダを減らして、続くやり方を一緒に作ります。</p>
+          <h2>システム開発支援</h2>
+          <p>技術者支援</p>
         </div>
       </section>
 
       <section className="band">
-        <h2>大切にしていること</h2>
-        <ul className="list">
-          <li>難しい言葉より、わかる言葉</li>
-          <li>作って終わりにしない</li>
-          <li>一緒に考えて、一緒に決める</li>
-        </ul>
       </section>
     </Layout>
   );
@@ -85,23 +75,16 @@ function Service() {
       <h1 className="pageTitle">事業内容</h1>
 
       <div className="card">
-        <h2>1) システム開発</h2>
+        <h2>1) 開発請負</h2>
         <p>
-          Webシステム / API / バックエンド / 運用。まずは小さく作って、現場で使いながら改善します。
+          Webシステム / API / バックエンド / 開発。
         </p>
       </div>
 
       <div className="card">
-        <h2>2) IT支援・技術顧問</h2>
+        <h2>2) システム開発支援</h2>
         <p>
-          技術相談、アーキテクチャ設計、レビュー、運用の壁打ちなど。必要な分だけ伴走します。
-        </p>
-      </div>
-
-      <div className="card">
-        <h2>3) 業務改善・IT活用支援</h2>
-        <p>
-          現状整理 → 課題の見える化 → シンプルな仕組み化。やりすぎず、続く形にします。
+          技術相談、技術者支援。
         </p>
       </div>
 
@@ -120,21 +103,21 @@ function About() {
       <div className="card">
         <h2>ミッション</h2>
         <p>
-          困っている人のそばで、一緒に考える。技術は目的ではなく手段。現場の知恵をつなぎ、課題をほどきます。
+          現場の課題を一緒に考える。技術は目的ではなく手段。現場の知恵をつなぎ、課題をほどく。
         </p>
       </div>
 
       <div className="card">
         <h2>社名の由来</h2>
         <p>
-          「知恵の輪」のように、知恵をつなぎ、ほどき、次につなげる。そんな仕事の姿勢を名前にしました。
+          「知恵の輪」のように、知恵をつなぎ、ほどき、次につなげる。
         </p>
       </div>
 
       <div className="card">
         <h2>代表について</h2>
         <p>
-          ここに経歴・得意分野・価値観を簡潔に。小さな会社だからこそ、責任を持って最後まで見届けます。
+          slerでネットワークからアプリまでの幅広いレイアでの業務経験を経て、金融業界でシステム開発に従事。
         </p>
       </div>
     </Layout>
@@ -158,19 +141,16 @@ function Company() {
 
   const profile = {
     title: "代表取締役",
-    name: "（あなたの名前）",
-    bio: [
-      "（例）業務システム/インフラ/運用改善の支援を中心に、現場課題の整理と実装を得意としています。",
-      "（例）要件定義〜設計〜実装〜運用まで一気通貫で対応し、継続的に改善します。",
-    ],
+    name: "安藝 航太朗",
+    bio: [],
   };
 
   const overview = [
     ["会社名", "株式会社chienowa"],
-    ["設立", "（YYYY年MM月）"],
-    ["代表", "（あなたの名前）"],
-    ["所在地", "（都道府県・市区町村まで）"],
-    ["事業内容", "システム開発 / IT支援・技術顧問 / 業務改善"],
+    ["設立", "2026年2月6日"],
+    ["代表", "安藝 航太朗"],
+    ["所在地", "東京都町田市小山ヶ丘5-32-3"],
+    ["事業内容", "開発請負 / IT・技術支援"],
     ["連絡先", "info@chienowa.example"],
   ];
 
@@ -179,43 +159,9 @@ function Company() {
       <section className="companyHero">
         <p className="eyebrow">ABOUT</p>
         <h1 className="companyTitle">会社情報</h1>
-        <p className="companyLead">知恵をつなぎ、課題をほどく。現場の「困った」を一緒に解決します。</p>
+        <p className="companyLead">知恵をつなぎ、課題をほどく。</p>
       </section>
 
-      <section className="section">
-        <h2 className="sectionTitle">定義</h2>
-        <div className="definitionGrid">
-          {definitions.map((d) => (
-            <div key={d.term} className="defItem">
-              <div className="defTerm">{d.term}</div>
-              <div className="defDesc">{d.desc}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <h2 className="sectionTitle">使命（Why we exist）</h2>
-        <div className="panel">
-          <p className="text">
-            （例）現場の知恵と技術をつなぎ、仕事が続く仕組みをつくる。
-          </p>
-        </div>
-
-        <h2 className="sectionTitle">理念（What we believe in）</h2>
-        <div className="panel">
-          <ul className="bullets">
-            {principles.map((x) => <li key={x}>{x}</li>)}
-          </ul>
-        </div>
-
-        <h2 className="sectionTitle">ビジョン（What we want to be）</h2>
-        <div className="panel">
-          <p className="text">
-            （例）ITが苦手な人でも安心して相談できる、やさしい技術パートナーになる。
-          </p>
-        </div>
-      </section>
 
       <section className="section">
         <h2 className="sectionTitle">代表紹介</h2>
@@ -294,7 +240,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/service" element={<Service />} />
-      <Route path="/about" element={<About />} />
+      {/* <Route path="/about" element={<About />} /> */}
       <Route path="/company" element={<Company />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
